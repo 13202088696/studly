@@ -1,6 +1,47 @@
 <template>
 	<view class="pro-item">
-		每个产品小组件
+		<view class="pic">
+			<image class="img" src="../../static/images/logo.png" mode="aspectFill"></image>
+		</view>
+		<view class="text">
+			<view class="title">产品标题产品标题产品标题产品标题</view>
+			<view class="price">
+				<view class="big">$10.5</view>
+				<view class="small">$22.3</view>
+			</view>
+			<view class="discount">3折</view>
+			<view class="numbox">
+				<view class="skuSelect" v-if="false">选规格</view>
+				<view class="uNum" v-else>
+					<u-number-box v-model="value" min="0" max="99" @change="numlChange">
+						<view 
+							slot="minus"
+							class="minus numbtn"
+							:class="value<=0?'none':''"
+						>
+							<u-icon 
+								name="minus"
+								size="12"
+								color="#ccc"
+							></u-icon>
+						</view>
+						<text v-slot="input" class="input" :class="value<=0?'none':''">
+								{{value}}
+						</text>
+						<view 
+						slot="plus"
+						class="plus numbtn">
+							<u-icon
+								name="plus"
+								size="12"
+								color="#FFFFFF"
+							></u-icon>
+						</view>
+					
+					</u-number-box>
+				</view>
+			</view>
+		</view>
 	</view>
 </template>
 
@@ -9,8 +50,13 @@
 		name:"product-item",
 		data() {
 			return {
-				
+				value:1
 			};
+		},
+		methods:{
+			numlChange(e){
+				console.log(e)
+			}
 		}
 	}
 </script>
@@ -18,7 +64,81 @@
 <style lang="scss">
 .pro-item{
 	width: 100%;
-	height: 100px;
-	background: orange;
+	@include flex-box();
+	.pic{
+		width: 180rpx;
+		height: 180rpx;
+		border-radius: 20rpx;
+		overflow: hidden;
+		.img{
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.text{
+		flex: 1;
+		padding-left: 20rpx;
+		padding: 25rpx 0;
+		position: relative;
+		.title{
+			font-size: 34rpx;
+			font-weight: bold;
+			@include ellipsis();
+		}
+		.price{
+			@include flex-box-set(start,end);
+			font-weight: bold;
+			padding: 25rpx 0;
+			.big{
+				font-size:34rpx ;
+				color: $brand-theme-color;
+			}
+			.small{
+				font-size: 26rpx;
+				opacity: 0.4;
+				text-decoration: line-through;
+				padding-left: 10rpx;
+			}
+		}
+		.discount{
+			font-size: 22rpx;
+			color: $brand-theme-color;
+			padding: 3rpx 8rpx;
+			border: 1rpx solid $brand-theme-color;
+			display: inline-block;
+			border-radius: 6rpx;
+		}
+		.numbox{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			.skuSelect{
+				background: $brand-theme-color;
+				height: 40rpx;
+				padding: 0 10rpx;
+				font-size: 28rpx;
+				color: #fff;
+			}
+			.minus{
+				border: 1px solid #ccc;
+				&.numbtn{
+				width: 40rpx;
+				height: 40rpx;
+				@include flex-box-set();
+				}
+			}
+			.plus{
+				background: $brand-theme-color;
+				}
+			.none{display: none;}
+			.input{
+				width: 60rpx;
+				height: 40rpx;
+				font-size: 26rpx;
+				color: #888;
+				@include flex-box-set();
+			}
+		}
+	}
 }
 </style>

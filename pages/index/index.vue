@@ -19,7 +19,7 @@
 				</view>
 				<view class="rightScroll">
 					<view class="searchView">
-						<u-icon name="search"></u-icon>
+						<u-icon name="search" size="22"></u-icon>
 						搜索
 					</view>
 					<scroll-view scroll-y class="sContent">
@@ -122,6 +122,9 @@
 						top: 0;
 						right: 30rpx;
 						z-index: 3;
+						@include flex-box-set();
+						height: 90rpx;
+						color:$brand-theme-color-aux;
 					}
 					.productView{
 						padding: 0 15px

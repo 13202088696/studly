@@ -47,3 +47,13 @@ $text-font-color-3:#a7a7a7;
 		align-items: flex-between;
 	}
 }
+
+@mixin ellipsis($row:1) {
+	text-overflow: -o-ellipsis-lastline;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: $row;
+	line-clamp: $row;
+	-webkit-box-orient: vertical;
+}

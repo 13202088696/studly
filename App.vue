@@ -17,3 +17,4 @@
 	@import "@/uni_modules/uview-ui/index.scss";
 	view,text{box-sizing: border-box;}
 </style>
+

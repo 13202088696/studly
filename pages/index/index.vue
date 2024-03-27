@@ -19,11 +19,12 @@
 				</view>
 				<view class="rightScroll">
 					<view class="searchView">
-						
+						<u-icon name="search"></u-icon>
+						搜索
 					</view>
 					<scroll-view scroll-y class="sContent">
 							<view class="productView" v-for="item in 5">
-								<u-sticky :customNavHeight='0'>
+								<u-sticky :customNavHeight='0' zIndex="2">
 									<view class="proTitle">产品名称{{item}}</view>
 								</u-sticky>
 								<view class="proContent">
@@ -115,6 +116,13 @@
 				.rightScroll{
 					height: 100%;
 					flex:1 ;
+					position: relative;
+					.searchView{
+						position: absolute;
+						top: 0;
+						right: 30rpx;
+						z-index: 3;
+					}
 					.productView{
 						padding: 0 15px
 					}

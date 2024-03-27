@@ -1,0 +1,136 @@
+<template>
+	<view class="home">
+		<custom-head-bar></custom-head-bar>
+		<view class="wrapper">
+			<view class="infoModel">
+				<view class="left">
+					免费配送
+				</view>
+				<view class="right">
+					<u-icon name="photo" color="#2979ff" size="28"></u-icon>
+					我的订单
+				</view>
+			</view>
+			<view class="scrollLayout">
+				<view class="leftScroll">
+					<scroll-view scroll-y class="sContent">
+							<view class="navitem" :class="item == 1 ? 'active' : ''" v-for="item in 50" >{{item}}</view>
+					</scroll-view>
+				</view>
+				<view class="rightScroll">
+					<view class="searchView">
+						
+					</view>
+					<scroll-view scroll-y class="sContent">
+							<view class="productView" v-for="item in 5">
+								<u-sticky :customNavHeight='0'>
+									<view class="proTitle">产品名称{{item}}</view>
+								</u-sticky>
+								<view class="proContent">
+									<view class="proitem" v-for="pro in 5">
+										<product-item></product-item>
+									</view>
+								</view>
+							</view>
+					</scroll-view>
+				</view>
+			</view>
+		</view>
+		
+	</view>
+</template>
+
+
+
+<script>
+	export default {
+		data() {
+			return {
+				
+			}
+		},
+		onLoad() {
+
+		},
+		methods: {
+
+		}
+	}
+</script>
+
+<style lang="scss" scoped> 
+	.home{
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		.wrapper{
+			flex: 1;
+			background: #fff;
+			margin-top: -10px;
+			position: relative;
+			z-index: 2;
+			overflow: hidden;
+			.infoModel{
+				color: $text-font-color-1;
+				@include flex-box
+				height: 50px;
+				background: #fff;
+				padding: 0 15px;
+				font-size: 16px;
+				border: 1px solid $border-color-light;
+				.right{
+					@include flex-box
+					color: $brand-theme-color-aux;
+				}
+			}
+			.scrollLayout{
+				height: calc(100% - 100rpx);
+				@include flex-box
+				.leftScroll{
+					height: 100%;
+					width: 190rpx;
+					border-right: 1px solid $border-color-light;
+					.navitem{
+						font-size: 30rpx;
+						padding-left: 30rpx;
+						line-height: 100rpx;
+						color: $text-font-color-2;
+						position: relative;
+						&.active{
+							color:$text-font-color-1;
+							background: #fff;
+							&::after{
+								content: '';
+								width: 6rpx;
+								height: 30rpx;
+								background: $brand-theme-color;
+								position: absolute;
+								left: 0;
+								top: 50%;
+								transform: translateY(-50%);
+							}
+						}
+					}
+				}
+				.rightScroll{
+					height: 100%;
+					flex:1 ;
+					.productView{
+						padding: 0 15px
+					}
+				}
+				.sContent{
+					height: 100%;
+				}
+				.productView{
+					padding:0 30rpx;
+					.proTitle{
+						line-height: 90rpx;
+						font-size: 30rpx;
+						background: #fff;
+					}
+				}
+			}
+		}
+	}
+</style>

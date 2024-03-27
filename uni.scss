@@ -1,0 +1,49 @@
+
+/* 颜色变量 */
+@import '@/uni_modules/uview-ui/theme.scss';
+/* 行为相关颜色 */
+$brand-theme-color:#EC544F;
+$brand-theme-color-aux:#576b95;
+$page-bg-color:#F7F7F7;
+$border-color:#e0e0e0;
+$border-color-light:#efefef;
+
+/*text颜色*/
+$text-font-color-1:#000;
+$text-font-color-2:#676767;
+$text-font-color-3:#a7a7a7;
+
+@mixin flex-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+/* 拓展 */
+@mixin flex-box-set($jc:center,$ai:center) {
+	@include flex-box();
+	@if($jc == center){
+		justify-content: center;
+	}
+	@if($jc == start){
+		justify-content: flex-start;
+	}
+	@if($jc == end){
+		justify-content: flex-end;
+	}
+	@if($jc == between){
+		justify-content: flex-between;
+	}
+	
+	@if($ai == center){
+		align-items: center;
+	}
+	@if($ai == start){
+		align-items: flex-start;
+	}
+	@if($ai == end){
+		align-items: flex-end;
+	}
+	@if($ai == between){
+		align-items: flex-between;
+	}
+}

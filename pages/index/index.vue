@@ -23,7 +23,7 @@
 						搜索
 					</view>
 					<scroll-view scroll-y class="sContent">
-							<view class="productView" v-for="item in 5">
+							<view class="productView" v-for="(item,index) in 5" :key="index">
 								<u-sticky :customNavHeight='0' zIndex="2">
 									<view class="proTitle">产品名称{{item}}</view>
 								</u-sticky>

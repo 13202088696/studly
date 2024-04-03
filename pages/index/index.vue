@@ -13,8 +13,15 @@
 			</view>
 			<view class="scrollLayout">
 				<view class="leftScroll">
-					<scroll-view scroll-y class="sContent">
-							<view class="navitem" :class="item == 1 ? 'active' : ''" v-for="item in 50" >{{item}}</view>
+					<scroll-view
+					scroll-y
+					class="sContent"
+					 :scroll-top="leftScrollVAlue"
+					scroll-with-animation>
+							<view class="navitem" 
+							:class="index == indexNow ? 'active' : ''"
+							 @click="clickNav(index)"
+							v-for="(item,index) in 20" :key="index">{{item}}</view>
 					</scroll-view>
 				</view>
 				<view class="rightScroll">
@@ -38,28 +45,74 @@
 			</view>
 		</view>
 		
+		<car-layout></car-layout>
+		
 	</view>
 </template>
 
 
 
 <script>
+import indexList from '../../uni_modules/uview-ui/libs/config/props/indexList'
+import loadingIcon from '../../uni_modules/uview-ui/libs/config/props/loadingIcon'
 	export default {
 		data() {
 			return {
-				
+				indexNow:0,
+				rightScrollVAlue:0,
+				leftScrollVAlue:0,
+				leftHitArr:[],
+				rightHitArr:[],
 			}
 		},
 		onLoad() {
-
+			this.$nextTick(()=>{
+				this.getHeightArr()
+			})
+	
 		},
+		watch: {
+		    rightHitArr: {
+		        handler (newName, oldName) {
+		            console.log(newName)
+		        },
+		        immediate: true,
+				}
+		    },
 		methods: {
-
+			clickNav(index){
+				if(this.indexNow == index) return;
+				if(this.timeout){
+					clearTimeout(this.timeout)
+				}
+				this.indexNow = index
+				this.timeout = setTimeout(()=>{
+					this.leftScrollVAlue = this.leftHitArr[index]
+					this.rightScrollVAlue = this.rightHitArr[index]
+				},100)
+			},
+			getHeightArr(){
+				let seletorQuery = uni.createSelectorQuery();
+				//左侧高度
+				seletorQuery.selectAll(".navitem").boundingClientRect(response=>{
+					this.leftHitArr = response.map(item=>item.top - 150)
+				}).exec()
+				//右侧高度
+				seletorQuery.selectAll(".productView").boundingClientRect(response=>{
+					this.rightHitArr = response.map(item=>item.top - 150)
+				}).exec()
+			},
+			rightScrollEnt(e){
+				let scorllTop = e.detail.scrollTop
+			    let idx = this.rightHitArr.findIndex((value, index, arr) => scorllTop >= value && scorllTop < arr[index+1]) 
+				this.indexNow = idx;
+				this.leftScrollVAlue = this.leftHitArr[idx]
+			},
 		}
 	}
 </script>
 
-<style lang="scss" scoped> 
+<style lang="scss" scoped>  
 	.home{
 		height: 100vh;
 		display: flex;

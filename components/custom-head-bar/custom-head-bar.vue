@@ -4,7 +4,7 @@
 			<image class="bgimg" src="../../static/images/logo.png" mode="aspectFill"></image>
 		</view>
 		<view class="container">
-			<view class="statusBar" :style="{height:statusbarHeight+'px'}"></view>
+			<view class="statusBar" :style="{height:titleBarHeight+'px'}"></view>
 			<view class="service" :style="{height:titleBarHeight+'px'}">
 				<view class="kefu">
 					<u-icon name="server-fill" size="22" color="#fff"></u-icon>
@@ -41,6 +41,7 @@
 </template>
 
 <script>
+	import { mapGetters } from 'vuex';
 	export default{
 		name:'custom-head-bar',
 		data(){
@@ -52,7 +53,8 @@
 		computed:{
 			totalHeight(){
 				return this.statusbarHeight+this.titleBarHeight+100+10
-			}
+			},
+			...mapGetters(['titleBarHeight'])
 		},
 		mounted() {
 			let systemInfo = uni.getSystemInfoSync();

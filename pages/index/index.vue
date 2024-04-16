@@ -3,10 +3,10 @@
 		<custom-head-bar></custom-head-bar>
 		<view class="wrapper">
 			<view class="infoModel">
-				<view class="left">
-					免费配送
+				<view class="left" @click="StoreMessage">
+					免费配送{{cartNo}}{{titleBarHeightt}}
 				</view>
-				<view class="right">
+				<view class="right" @click="navOrder">
 					<u-icon name="photo" color="#2979ff" size="28"></u-icon>
 					我的订单
 				</view>
@@ -25,7 +25,7 @@
 					</scroll-view>
 				</view>
 				<view class="rightScroll">
-					<view class="searchView">
+					<view class="searchView" @click="navSearch">
 						<u-icon name="search" size="22"></u-icon>
 						搜索
 					</view>
@@ -35,7 +35,7 @@
 									<view class="proTitle">产品名称{{item}}</view>
 								</u-sticky>
 								<view class="proContent">
-									<view class="proitem" v-for="pro in 5">
+									<view class="proitem" v-for="(itemChild,indexChild) in 5" :key="indexChild">
 										<product-item></product-item>
 									</view>
 								</view>
@@ -55,6 +55,7 @@
 <script>
 import indexList from '../../uni_modules/uview-ui/libs/config/props/indexList'
 import loadingIcon from '../../uni_modules/uview-ui/libs/config/props/loadingIcon'
+import {mapState,mapMutations,mapGetters} from "vuex"
 	export default {
 		data() {
 			return {
@@ -69,7 +70,6 @@ import loadingIcon from '../../uni_modules/uview-ui/libs/config/props/loadingIco
 			this.$nextTick(()=>{
 				this.getHeightArr()
 			})
-	
 		},
 		watch: {
 		    rightHitArr: {
@@ -79,7 +79,24 @@ import loadingIcon from '../../uni_modules/uview-ui/libs/config/props/loadingIco
 		        immediate: true,
 				}
 		    },
+			computed:{
+				...mapGetters(['cartNo','titleBarHeightt'])
+			},
 		methods: {
+			...mapMutations(['setCartVaule']),
+			StoreMessage(){
+				this.setCartVaule(4554)
+			},
+			navOrder(){
+				uni.navigateTo({
+					url:'/pages/order/order'
+				})
+			},
+			navSearch(){
+				uni.navigateTo({
+					url:'/pages/search/search'
+				})
+			},
 			clickNav(index){
 				if(this.indexNow == index) return;
 				if(this.timeout){

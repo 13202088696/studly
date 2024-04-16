@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/* 颜色变量 */
+/* 行为相关颜色 */
+/*text颜色*/
+/* 拓展 */
+page {
+  background: #F7F7F7;
+}
+.orderPage .row {
+  padding: 40rpx 20rpx;
+  background: #fff;
+  margin: 20rpx;
+  border-radius: 20rpx;
+}
+.orderPage .row .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+}
+.orderPage .row .head .number {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+.orderPage .row .head .number .way {
+  background: #19be6b;
+  color: #fff;
+  font-size: 22rpx;
+  padding: 6rpx 20rpx;
+  border-radius: 30rpx;
+  margin-left: 10rpx;
+}
+.orderPage .row .head .state {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #576b95;
+}
+.orderPage .row .body {
+  border: 1px solid #e0e0e0;
+  padding: 60rpx 20rpx;
+  border-radius: 10rpx;
+  background: #f9f9f9;
+  font-size: 34rpx;
+  margin: 30px 0;
+}
+.orderPage .row .footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 26rpx;
+  color: #a5a5a5;
+}
+.orderPage .row .footer .price {
+  font-weight: bold;
+  color: #000;
+}
+

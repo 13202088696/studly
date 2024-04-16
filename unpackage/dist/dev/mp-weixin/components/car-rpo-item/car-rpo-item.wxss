@@ -1,0 +1,66 @@
+@charset "UTF-8";
+/* 颜色变量 */
+/* 行为相关颜色 */
+/*text颜色*/
+/* 拓展 */
+.carProItem {
+  padding: 20rpx 0;
+  border-bottom: 1px solid #efefef;
+  position: relative;
+}
+.carProItem .left {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+.carProItem .left .pic {
+  width: 110rpx;
+  height: 110rpx;
+}
+.carProItem .left .pic .img {
+  width: 100%;
+  height: 100%;
+}
+.carProItem .left .text {
+  flex: 1;
+  padding-left: 20rpx;
+}
+.carProItem .left .text .title {
+  font-size: 28rpx;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.carProItem .left .text .sku {
+  font-size: 22rpx;
+  color: #999;
+  padding: 5rpx 0;
+}
+.carProItem .left .price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+.carProItem .left .price .big {
+  font-weight: bold;
+  font-size: 28rpx;
+  color: #EC544F;
+}
+.carProItem .left .price .samll {
+  font-size: 26rpx;
+  color: #a7a7a7;
+}
+.carProItem .right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+

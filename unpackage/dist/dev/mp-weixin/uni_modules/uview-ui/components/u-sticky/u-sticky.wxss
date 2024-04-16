@@ -1,0 +1,10 @@
+@charset "UTF-8";
+/* 颜色变量 */
+/* 行为相关颜色 */
+/*text颜色*/
+/* 拓展 */
+.u-sticky.data-v-e18bd96e {
+  position: -webkit-sticky;
+  position: sticky;
+}
+

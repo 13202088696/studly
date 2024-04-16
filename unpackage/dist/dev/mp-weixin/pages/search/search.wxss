@@ -1,0 +1,21 @@
+@charset "UTF-8";
+/* 颜色变量 */
+/* 行为相关颜色 */
+/*text颜色*/
+/* 拓展 */
+.searchLayout {
+  padding: 30rpx;
+}
+.searchLayout .historyList {
+  margin-top: 30rpx;
+}
+.searchLayout .historyList .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 32rpx;
+  padding: 30rpx 0;
+  color: #333;
+  border-bottom: 1px solid #efefef;
+}
+

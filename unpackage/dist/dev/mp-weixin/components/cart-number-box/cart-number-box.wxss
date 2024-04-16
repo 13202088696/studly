@@ -1,0 +1,33 @@
+@charset "UTF-8";
+/* 颜色变量 */
+/* 行为相关颜色 */
+/*text颜色*/
+/* 拓展 */
+.proView .minus {
+  border: 1px solid #ccc;
+}
+.proView .numbtn {
+  width: 40rpx;
+  height: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+.proView .plus {
+  background: #EC544F;
+}
+.proView .none {
+  display: none;
+}
+.proView .input {
+  width: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+

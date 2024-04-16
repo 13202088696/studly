@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "cart-number-box": "/components/cart-number-box/cart-number-box"
+  }
+}
